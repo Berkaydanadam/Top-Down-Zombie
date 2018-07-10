@@ -17,33 +17,15 @@ public class PlayerMovementScript : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
-        Move(horizontal, vertical); // So sorry for this horrible function. Just had to add local movement somehow
-                                    //and this was the only way I could think of at this state of mind. It works but 
-                                    //you can make it a little more practical if you like
+        var x = Input.GetAxis("Horizontal") * Time.deltaTime * movementSpeed;
+        var z = Input.GetAxis("Vertical") * Time.deltaTime * movementSpeed;
+
+        transform.position = new Vector3(transform.position.x + x, transform.position.y, transform.position.z + z);
+
+
         Rotating();
     }
 
-    private void Move(float horizontal, float vertical)
-    {
-        if (vertical > 0)// If statement Hell so sorry
-        {
-            transform.position += transform.forward * movementSpeed * Time.deltaTime;
-        }
-        if (vertical < 0)
-        {
-            transform.position -= transform.forward * movementSpeed * Time.deltaTime;
-        }
-        if (horizontal > 0)
-        {
-            transform.position += transform.right * movementSpeed * Time.deltaTime;
-        }
-        if (horizontal < 0)
-        {
-            transform.position -= transform.right * movementSpeed * Time.deltaTime;
-        }
-    }
 
     void Rotating() {
 
