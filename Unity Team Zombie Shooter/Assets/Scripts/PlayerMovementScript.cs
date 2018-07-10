@@ -9,7 +9,6 @@ public class PlayerMovementScript : MonoBehaviour {
     int groundMask;
     float camRayLength = 100; //random number
 
-	void Update () {
     private void Awake()
     {
         groundMask = LayerMask.GetMask("Ground"); // Have to have a layer mask for ground to use rotate
