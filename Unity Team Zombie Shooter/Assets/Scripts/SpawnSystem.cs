@@ -101,7 +101,10 @@ public class SpawnSystem : MonoBehaviour {
             foreach(Vector3 spawn in spawnPoints)
             {
                 yield return new WaitForSeconds(1.5f);
-                Instantiate(zombiePrefab, new Vector3(spawn.x, spawn.y, spawn.z), Quaternion.identity);
+                if(aliveZombies < totalZombies)
+                {
+                    Instantiate(zombiePrefab, new Vector3(spawn.x, spawn.y, spawn.z), Quaternion.identity);
+                }
             }
             spawnEnable = true;
 
