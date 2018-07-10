@@ -10,9 +10,17 @@ public class SpawnSystem : MonoBehaviour {
     public GameObject zombiePrefab; //Single prefab for the zombies, rewrite the code if we would use different zombie prefabs
     public GameObject Player;
 
+    public List<Vector3> spawnPoints = new List<Vector3>(); //saves spawn point in here
+
     public int wave = 0; //wave number
+    public int totalSpawn = 5; //amount of random spawn points across the level
     public int totalZombies; //total zombies in the current wave
     public int aliveZombies; //alive zombiesi in the current wave
+
+    public float minimumDistance = 5.0f; //min distance for zombie spawn from player
+    public float maximumDistance = 10.0f; //max ^^
+    public float zombieSpawnTime = 0.0f; //time between each zombie is spawned
+    public float inbetweenWaveTime = 0.0f; //time between each wave
 
     public bool spawnEnable = true; //set true if game is ready to spawn, turn off while spawning.
     public bool nextWave = false;
@@ -22,7 +30,7 @@ public class SpawnSystem : MonoBehaviour {
     {
         //Spawn first wave of zombies
         wave = 1;
-        Spawn();
+        StartCoroutine(Spawn());
 	}
 	
 	// Update is called once per frame
@@ -31,57 +39,87 @@ public class SpawnSystem : MonoBehaviour {
         //check for alive zombies
         aliveZombies = GameObject.FindGameObjectsWithTag("Zombie").Length;
 
+        
         if ((aliveZombies == 0 || aliveZombies < 0) && nextWave == false)
         {
             nextWave = true;
             StartCoroutine(NextWave());
         }
+        
     }
 
-    void Spawn()
+    public IEnumerator Spawn()
     {
+        //clear spawnPoints list
+        spawnPoints.Clear();
         if (spawnEnable == true && aliveZombies == 0)
         {
-            float randomX;
-            float randomZ;
+            float randomX = 0;
+            float randomZ = 0;
 
             spawnEnable = false; //Set spawn to false during spawning so it wont be triggered multiple times
             totalZombies = wave * 5; //Add the right amount of zombies each spawn round
 
-            for (int i = 0; i < totalZombies; i++)
+            //decide spawn points here
+            for (int i = 0; i < totalSpawn; i++)
             {
-                /*This can definitely be done in a better way*/
-                //This will give the zombies different locations for all of them
                 do
                 {
-                    randomX = Random.Range(-10.0f, 10.0f); //change this for maximum length
-                    randomZ = Random.Range(-10.0f, 10.0f);
+                    //eliminates every positions close to the player according to maxi- and minimumumDistance
 
-                    //eliminates every position 5 feet from the player
-                    if ((randomX + Player.gameObject.transform.position.x > 5.0f || randomX < -5.0f) && (randomZ + Player.gameObject.transform.position.y > 5.0f || randomZ < -5.0f)) //change this for minimum length
+                    randomX = Random.Range(maximumDistance * -1, maximumDistance); //change this for maximum distance  
+                    if (randomX + Player.gameObject.transform.position.x > 5.0f || randomX < -5.0f)
                     {
-                        break;
+                        //if X is in the right values it will loop and check for Z 
+                        do
+                        {
+                            randomZ = Random.Range(maximumDistance * -1, maximumDistance);
+                            if (randomZ + Player.gameObject.transform.position.y > minimumDistance || randomZ < minimumDistance * -1)
+                            {
+                                //if Z is in the right value it will break loop
+                                break;
+                            }
+                        } while (true);
+                        break; //break when both Z and X is right values
                     }
                 } while (true);
 
-                randomX = randomX + Player.gameObject.transform.position.x;
+                //ranxomX and RandomZ is now the random position for one of the spawns
+                randomX = randomX + Player.gameObject.transform.position.x; //set values for the spawn positions
                 randomZ = randomZ + Player.gameObject.transform.position.y;
-                Instantiate(zombiePrefab, new Vector3(randomX, 1, randomZ), Quaternion.identity);
 
-                //Debug.Log("Spawn at X: " + randomX + " and Y: " + randomZ);
+                spawnPoints.Add(new Vector3(randomX, 1, randomZ));
+
+
+                Debug.Log("Spawn point at X: " + randomX + " and Y: " + randomZ);
+
             }
             Debug.Log("Spawning complete");
+
+            //SPAWN ZOMBIES HERE 
+
+            //Spawn X amount of zombies on this spawn point
+            Instantiate(zombiePrefab, new Vector3(randomX, 1, randomZ), Quaternion.identity);
+
+            foreach(Vector3 spawn in spawnPoints)
+            {
+                yield return new WaitForSeconds(zombieSpawnTime);
+                if(aliveZombies < totalZombies)
+                {
+                    Instantiate(zombiePrefab, new Vector3(spawn.x, spawn.y, spawn.z), Quaternion.identity);
+                }
+            }
             spawnEnable = true;
+
         }
     }
     IEnumerator NextWave()
     {
         Debug.Log("Wait 5 sec for next wave");
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(inbetweenWaveTime);
         Debug.Log("Wave: " + wave);
         wave++;
         nextWave = false;
-        Spawn();
+        StartCoroutine(Spawn());
     }
-
 }

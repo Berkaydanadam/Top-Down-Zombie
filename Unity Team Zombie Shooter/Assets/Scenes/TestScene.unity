@@ -374,9 +374,15 @@ MonoBehaviour:
   zombiePrefab: {fileID: 1461840463095070, guid: 663c5931e85c0124785ef2b7585e21f1,
     type: 2}
   Player: {fileID: 1851453032883712, guid: ea09b186b02114c4ebd07631f625ec1b, type: 2}
+  spawnPoints: []
   wave: 0
+  totalSpawn: 5
   totalZombies: 0
   aliveZombies: 0
+  minimumDistance: 5
+  maximumDistance: 10
+  zombieSpawnTime: 1.5
+  inbetweenWaveTime: 5
   spawnEnable: 1
   nextWave: 0
 --- !u!4 &845476083
