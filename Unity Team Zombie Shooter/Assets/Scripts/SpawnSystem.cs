@@ -13,6 +13,8 @@ public class SpawnSystem : MonoBehaviour {
     public int wave = 0; //wave number
     public int totalZombies; //total zombies in the current wave
     public int aliveZombies; //alive zombiesi in the current wave
+    public float minimumDistance = 5.0f; //min distance for zombie spawn from player
+    public float maximumDistance = 10.0f; //max ^^
 
     public bool spawnEnable = true; //set true if game is ready to spawn, turn off while spawning.
     public bool nextWave = false;
@@ -38,12 +40,12 @@ public class SpawnSystem : MonoBehaviour {
         }
     }
 
-    void Spawn()
+    IEnumerator Spawn()
     {
         if (spawnEnable == true && aliveZombies == 0)
         {
-            float randomX;
-            float randomZ;
+            float randomX = 0;
+            float randomZ = 0;
 
             spawnEnable = false; //Set spawn to false during spawning so it wont be triggered multiple times
             totalZombies = wave * 5; //Add the right amount of zombies each spawn round
@@ -54,26 +56,37 @@ public class SpawnSystem : MonoBehaviour {
                 //This will give the zombies different locations for all of them
                 do
                 {
-                    randomX = Random.Range(-10.0f, 10.0f); //change this for maximum length
-                    randomZ = Random.Range(-10.0f, 10.0f);
 
-                    //eliminates every position 5 feet from the player
-                    if ((randomX + Player.gameObject.transform.position.x > 5.0f || randomX < -5.0f) && (randomZ + Player.gameObject.transform.position.y > 5.0f || randomZ < -5.0f)) //change this for minimum length
+                    //eliminates every position 5 feet from the player ----- minimum distance in this
+
+                    randomX = Random.Range(maximumDistance * -1, maximumDistance); //change this for maximum distance  
+                    if(randomX + Player.gameObject.transform.position.x > 5.0f || randomX < -5.0f)
                     {
-                        break;
+                        //if X is in the right values it will loop and check for Z 
+                        do
+                        {
+                            randomZ = Random.Range(maximumDistance * -1, maximumDistance);
+                            if (randomZ + Player.gameObject.transform.position.y > minimumDistance || randomZ < minimumDistance * -1)
+                            {
+                                //if Z is in the right value it will break loop
+                                break;
+                            }
+                        } while (true);
+                        break; //break when both Z and X is right values
                     }
                 } while (true);
 
-                randomX = randomX + Player.gameObject.transform.position.x;
+                randomX = randomX + Player.gameObject.transform.position.x; //set values for the spawn positions
                 randomZ = randomZ + Player.gameObject.transform.position.y;
                 Instantiate(zombiePrefab, new Vector3(randomX, 1, randomZ), Quaternion.identity);
 
-                //Debug.Log("Spawn at X: " + randomX + " and Y: " + randomZ);
+                Debug.Log("Spawn at X: " + randomX + " and Y: " + randomZ);
             }
             Debug.Log("Spawning complete");
             spawnEnable = true;
         }
     }
+
     IEnumerator NextWave()
     {
         Debug.Log("Wait 5 sec for next wave");
