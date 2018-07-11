@@ -28,9 +28,10 @@ public class PlayerMovementScript : MonoBehaviour {
 
 
     void Rotating() {
+        //Ray cast from the mouse to the ground from the camera angle
+        Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition); 
 
-        Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition); //casts a ray from the mouse to the ground and rotates
-                                                                        //to look at that postition
+        //The location on the ground under the mouse
         RaycastHit floorHit;
 
         if(Physics.Raycast (camRay, out floorHit, camRayLength, groundMask)) {
@@ -40,6 +41,7 @@ public class PlayerMovementScript : MonoBehaviour {
 
             Quaternion newRotation = Quaternion.LookRotation(playerToMouse);
 
+            //Changes the rotation to the look rotation
             transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, turnSpeed);
         }
     }
