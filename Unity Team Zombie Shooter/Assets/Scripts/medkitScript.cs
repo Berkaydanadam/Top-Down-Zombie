@@ -6,6 +6,7 @@ public class medkitScript : MonoBehaviour
 {
 
     public int health = 20; //Random number
+    public float turnSpeed = 20f;
 
     GameObject playerObj;
     playerStatScript player;
@@ -16,7 +17,7 @@ public class medkitScript : MonoBehaviour
     }
 
     void Update() {
-
+        transform.Rotate(Vector3.up, turnSpeed * Time.deltaTime);
     }
 
     private void OnTriggerEnter(Collider other) {

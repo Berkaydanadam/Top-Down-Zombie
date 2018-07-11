@@ -5,6 +5,7 @@ using UnityEngine;
 public class ammoBoxScript : MonoBehaviour {
 
     public int ammo = 30; //Random number
+    public float turnSpeed = 20f;
 
     GameObject playerObj;
     playerStatScript player;
@@ -15,7 +16,7 @@ public class ammoBoxScript : MonoBehaviour {
     }
 	
 	void Update () {
-		
+        transform.Rotate(Vector3.up, turnSpeed * Time.deltaTime);
 	}
 
     private void OnTriggerEnter(Collider other) {
