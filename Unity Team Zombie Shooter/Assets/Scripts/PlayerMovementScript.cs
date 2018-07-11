@@ -26,7 +26,6 @@ public class PlayerMovementScript : MonoBehaviour {
         Rotating();
     }
 
-
     void Rotating() {
         //Ray cast from the mouse to the ground from the camera angle
         Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition); 
