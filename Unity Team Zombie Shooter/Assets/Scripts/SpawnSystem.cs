@@ -16,8 +16,11 @@ public class SpawnSystem : MonoBehaviour {
     public int totalSpawn = 5; //amount of random spawn points across the level
     public int totalZombies; //total zombies in the current wave
     public int aliveZombies; //alive zombiesi in the current wave
+
     public float minimumDistance = 5.0f; //min distance for zombie spawn from player
     public float maximumDistance = 10.0f; //max ^^
+    public float zombieSpawnTime = 0.0f; //time between each zombie is spawned
+    public float inbetweenWaveTime = 0.0f; //time between each wave
 
     public bool spawnEnable = true; //set true if game is ready to spawn, turn off while spawning.
     public bool nextWave = false;
@@ -100,7 +103,7 @@ public class SpawnSystem : MonoBehaviour {
 
             foreach(Vector3 spawn in spawnPoints)
             {
-                yield return new WaitForSeconds(1.5f);
+                yield return new WaitForSeconds(zombieSpawnTime);
                 if(aliveZombies < totalZombies)
                 {
                     Instantiate(zombiePrefab, new Vector3(spawn.x, spawn.y, spawn.z), Quaternion.identity);
@@ -113,14 +116,10 @@ public class SpawnSystem : MonoBehaviour {
     IEnumerator NextWave()
     {
         Debug.Log("Wait 5 sec for next wave");
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(inbetweenWaveTime);
         Debug.Log("Wave: " + wave);
         wave++;
         nextWave = false;
         StartCoroutine(Spawn());
-    }
-    public void test()
-    {
-
     }
 }
