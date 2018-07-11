@@ -381,6 +381,8 @@ MonoBehaviour:
   aliveZombies: 0
   minimumDistance: 5
   maximumDistance: 10
+  zombieSpawnTime: 1.5
+  inbetweenWaveTime: 5
   spawnEnable: 1
   nextWave: 0
 --- !u!4 &845476083
