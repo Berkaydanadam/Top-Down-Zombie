@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnSystem : MonoBehaviour {
+public class ZombieSpawn : MonoBehaviour {
 
     //Everything is set to public for testing purposes
     //totalZombies per wave will be (5 * wave), 5 more zombies will be added each wave. - change this later if needed
@@ -91,10 +91,10 @@ public class SpawnSystem : MonoBehaviour {
                 spawnPoints.Add(new Vector3(randomX, 1, randomZ));
 
 
-                Debug.Log("Spawn point at X: " + randomX + " and Y: " + randomZ);
+                //Debug.Log("Spawn point at X: " + randomX + " and Y: " + randomZ);
 
             }
-            Debug.Log("Spawning complete");
+            //Debug.Log("Spawning complete");
 
             //SPAWN ZOMBIES HERE 
 
