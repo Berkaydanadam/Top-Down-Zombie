@@ -7,23 +7,55 @@ public class zombieScript : MonoBehaviour {
 
     //Some have Armor?
     public float health = 100; //Change to prefrence
+    public float damage = 10;
+    public float timeBetweenAttacks = 3;
 
-    GameObject player;
+    public bool attack;
+
+    GameObject playerObj;
     NavMeshAgent agent;
 
+    playerStatScript player;
+
+    Renderer rend;
+
 	void Start () {
-        player = GameObject.FindGameObjectWithTag("Player");
+        attack = true;
+        playerObj = GameObject.FindGameObjectWithTag("Player");
+        player = playerObj.GetComponent<playerStatScript>();
         agent = GetComponent<NavMeshAgent>();
+        //Fetch the Renderer from the GameObject
+        rend = GetComponent<Renderer>();
     }
 
 	void Update () {
         //Sets the goal of the agent to get to the players transform
-        agent.destination = player.transform.position;
+        agent.destination = playerObj.transform.position;
 
-        /*
-        If the zombies reach the player they start adding odd
-        I think I could fix it by an if statement that restates
-        the destination if it's reached
-        */
+        //Change color for debugging
+        if (attack) {
+            rend.material.color = Color.green;
+        }
+        else {
+            rend.material.color = Color.red;
+        }
+    }
+
+    private void OnCollisionStay(Collision collision) {
+        if (collision.gameObject == playerObj && attack) {
+            Attack();
+            StartCoroutine(WaitToAttack(timeBetweenAttacks)); //Makes it wait some secs to change the bool
+        }
+    }
+
+    void Attack() { //Takes the health of the player
+        attack = false;
+        Debug.Log("Lose: " + damage.ToString());
+        player.health -= damage; //Maybe later make this a function in playerstat
+    }
+
+    IEnumerator WaitToAttack (float seconds) {
+        yield return new WaitForSeconds(seconds);
+        attack = true;
     }
 }
