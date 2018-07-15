@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -696,7 +696,7 @@ GameObject:
   - component: {fileID: 845476084}
   m_Layer: 0
   m_Name: Spawn System
-  m_TagString: Untagged
+  m_TagString: SpawnSystem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -754,8 +754,11 @@ MonoBehaviour:
   items:
   - {fileID: 1961465186967308, guid: cecc22efcd825db439479ae2b8fecd63, type: 2}
   - {fileID: 1026172492109988, guid: b15b2cc6be4361c46847507f027212f6, type: 2}
+  itemsOnGround: []
   nextSpawn: 0
   itemNumber: 0
+  maxItemsOnGround: 2
+  totalItemsOnGround: 0
 --- !u!1 &1009565669
 GameObject:
   m_ObjectHideFlags: 0
