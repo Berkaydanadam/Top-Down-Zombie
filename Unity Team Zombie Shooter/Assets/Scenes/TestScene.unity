@@ -536,7 +536,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 519924575}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 6.55, z: 0}
+  m_LocalPosition: {x: 0, y: 12.22, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1045,6 +1045,34 @@ Transform:
   m_Father: {fileID: 1009565670}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1503977130
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1503977131}
+  m_Layer: 0
+  m_Name: originPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1503977131
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1503977130}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.54, y: -0.64, z: -9.43}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2101942862}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1836485454
 GameObject:
   m_ObjectHideFlags: 0
@@ -1302,6 +1330,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 2101942862}
+  - component: {fileID: 2101942863}
   m_Layer: 0
   m_Name: gunPrototype
   m_TagString: Untagged
@@ -1321,9 +1350,29 @@ Transform:
   m_LocalScale: {x: 0.12913185, y: 0.12913188, z: 0.12913188}
   m_Children:
   - {fileID: 469018853}
+  - {fileID: 1503977131}
   m_Father: {fileID: 1117147506}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
+--- !u!114 &2101942863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2101942861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49fb6d385e79be14e88d5831fd18df13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  originPoint: {fileID: 1503977130}
+  damage: 30
+  range: 100
+  impactForce: 30
+  fireRate: 3
+  ammo: 30
+  maxAmmo: 30
+  nextTimeToFire: 0.54
 --- !u!1 &2110366844
 GameObject:
   m_ObjectHideFlags: 0

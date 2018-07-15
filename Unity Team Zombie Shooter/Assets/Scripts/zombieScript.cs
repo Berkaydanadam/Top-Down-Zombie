@@ -26,6 +26,10 @@ public class zombieScript : MonoBehaviour {
     }
 
 	void Update () {
+        if(health <= 0) {
+            Die();
+        }
+
         //Change color for debugging
         /*
         if (attack) {
@@ -35,6 +39,10 @@ public class zombieScript : MonoBehaviour {
             rend.material.color = Color.red;
         }
         */
+    }
+
+    void Die() {
+        GameObject.Destroy(gameObject);
     }
 
     private void OnCollisionStay(Collision collision) {
