@@ -25,6 +25,8 @@ GameObject:
   - component: {fileID: 195302163533943788}
   - component: {fileID: 114943995236529748}
   - component: {fileID: 54553951926579504}
+  - component: {fileID: 114413928282555226}
+  - component: {fileID: 135271859637438992}
   m_Layer: 0
   m_Name: ZombiePrototype
   m_TagString: Zombie
@@ -39,7 +41,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1461840463095070}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.06945276, y: 0.56, z: -1.1429744}
+  m_LocalPosition: {x: 0.39779013, y: 0.756, z: 5.410718}
   m_LocalScale: {x: 0.46937874, y: 1.1451699, z: 0.46937874}
   m_Children: []
   m_Father: {fileID: 0}
@@ -114,6 +116,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114413928282555226
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1461840463095070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fb0dcbdd2ab04b48aab57e04a4064d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkRadius: 4
 --- !u!114 &114943995236529748
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -126,6 +140,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  damage: 10
+  timeBetweenAttacks: 3
+  attack: 0
+--- !u!135 &135271859637438992
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1461840463095070}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 3.03
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!195 &195302163533943788
 NavMeshAgent:
   m_ObjectHideFlags: 1
