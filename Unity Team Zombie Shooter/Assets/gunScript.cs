@@ -39,7 +39,7 @@ public class gunScript : MonoBehaviour
         GameObject bullet = Instantiate(projectile, 
             originPoint.transform.position, originPoint.rotation) as GameObject;
         if(bullet != null) {
-            bullet.GetComponent<Rigidbody>().AddForce(-transform.forward * 1000);
+            bullet.GetComponent<Rigidbody>().AddForce(-transform.forward * 10);
         }
     }
 }

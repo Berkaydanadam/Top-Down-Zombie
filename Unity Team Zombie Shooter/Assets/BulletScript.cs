@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour {
 
+    public int damage;
+
 	void Start () {
     }
 	
@@ -13,8 +15,7 @@ public class BulletScript : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision) {
         if (collision.gameObject.tag == ("Zombie")) {
-            collision.gameObject.GetComponent<zombieScript>().health -= 
-                GameObject.FindGameObjectWithTag("Weapon").GetComponent<gunScript>().damage;
+            collision.gameObject.GetComponent<zombieScript>().health -= damage;
             Destroy(gameObject);
         }
     }

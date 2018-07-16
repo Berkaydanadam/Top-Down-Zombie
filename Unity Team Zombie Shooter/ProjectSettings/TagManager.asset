@@ -7,6 +7,7 @@ TagManager:
   - Zombie
   - Consumables
   - Weapon
+  - Bullet
   layers:
   - Default
   - TransparentFX

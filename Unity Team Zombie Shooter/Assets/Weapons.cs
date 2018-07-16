@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class Weapons : MonoBehaviour {
 
-    public GameObject originPoint;
-    public GameObject projectile;
+    public Transform originPoint;
 
-    public float damage;
-    public float impactForce;
+    public int damage;
     public float fireRate;
-    public float ammo;
-    public float maxAmmo;
-    public float nextTimeToFire;
+    public int ammo;
+    public int maxAmmo;
+
+    float nextTimeToFire;
 
     private void Start() {
     }
@@ -35,7 +34,9 @@ public class Weapons : MonoBehaviour {
         ammo = maxAmmo;
     }
     void Shoot() {
-        GameObject bullet = Instantiate(projectile, originPoint.transform.position, Quaternion.identity) as GameObject;
-        bullet.GetComponent<Rigidbody>().AddForce(-transform.forward * 1000);
+        GameObject bullet = Instantiate(GameObject.FindGameObjectWithTag("Bullet") 
+            , originPoint.transform.position, originPoint.rotation) as GameObject;
+        bullet.GetComponent<Rigidbody>().AddForce(-transform.forward * 100);
+        bullet.GetComponent<BulletScript>().damage = damage;
     }
 }
