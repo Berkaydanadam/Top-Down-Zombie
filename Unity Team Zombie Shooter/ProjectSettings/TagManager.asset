@@ -9,6 +9,7 @@ TagManager:
   - ItemConsumables
   - ItemWeapon
   - SpawnSystem
+  - Environment
   layers:
   - Default
   - TransparentFX

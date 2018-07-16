@@ -29,11 +29,21 @@ public abstract class Item : MonoBehaviour, IPickup {
     }
     public void OnTriggerEnter(Collider other)
     {
+        Debug.Log("enter");
         if (other.gameObject == GameObject.FindGameObjectWithTag("Player"))
         {
+            Debug.Log("test");
             itemSpawn.totalItemsOnGround--;//removes item from ground
             PickUp();
         }
+        if (other.gameObject.tag.Contains("Environment")) //if item spawns in an wall for example
+        {
+            itemSpawn.totalItemsOnGround--;//removes item from ground int
+            itemSpawn.SpawnItem(); //spawns new one
+            Debug.Log("spawned new and destroying");
+            Object.Destroy(gameObject);
+        }
+
     }
     public virtual void PickUp()
     {
