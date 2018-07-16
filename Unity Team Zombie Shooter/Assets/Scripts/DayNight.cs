@@ -17,7 +17,7 @@ public class DayNight : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void OnValidate () {
 		if (cycle == true)
         {
             //day and night cycle
