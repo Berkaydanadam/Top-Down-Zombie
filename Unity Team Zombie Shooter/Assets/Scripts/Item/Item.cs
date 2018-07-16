@@ -9,10 +9,14 @@ public abstract class Item : MonoBehaviour, IPickup {
     public float turnSpeed;
 
     public playerStatScript playerStats;
+    public ItemSpawn itemSpawn;
+
 
     void Start()
     {
         playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<playerStatScript>();
+        itemSpawn = GameObject.FindGameObjectWithTag("SpawnSystem").GetComponent<ItemSpawn>();
+
     }
 
     void Update()
@@ -27,6 +31,7 @@ public abstract class Item : MonoBehaviour, IPickup {
     {
         if (other.gameObject == GameObject.FindGameObjectWithTag("Player"))
         {
+            itemSpawn.totalItemsOnGround--;//removes item from ground
             PickUp();
         }
     }
