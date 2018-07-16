@@ -9,10 +9,12 @@ public class ammoBoxScript : MonoBehaviour {
 
     GameObject playerObj;
     playerStatScript player;
+    ItemSpawn itemSpawn;
 
 	void Start () {
         playerObj = GameObject.FindGameObjectWithTag("Player");
         player  = playerObj.GetComponent<playerStatScript>();
+        itemSpawn = GameObject.FindGameObjectWithTag("SpawnSystem").GetComponent<ItemSpawn>();
     }
 	
 	void Update () {
@@ -22,6 +24,7 @@ public class ammoBoxScript : MonoBehaviour {
     private void OnTriggerEnter(Collider other) {
         if(other.gameObject == playerObj) {
             player.ammo += ammo;//Adds the ammo to the player stats
+            itemSpawn.totalItemsOnGround--;//removes item from ground
             Destroy();
         }
     }

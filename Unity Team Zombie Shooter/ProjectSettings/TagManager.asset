@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Zombie
   - Consumables
+  - ItemConsumables
+  - ItemWeapon
+  - SpawnSystem
   layers:
   - Default
   - TransparentFX

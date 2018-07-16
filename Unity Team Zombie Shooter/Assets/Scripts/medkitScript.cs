@@ -10,10 +10,13 @@ public class medkitScript : MonoBehaviour
 
     GameObject playerObj;
     playerStatScript player;
+    ItemSpawn itemSpawn;
+
 
     void Start() {
         playerObj = GameObject.FindGameObjectWithTag("Player");
         player = playerObj.GetComponent<playerStatScript>();
+        itemSpawn = GameObject.FindGameObjectWithTag("SpawnSystem").GetComponent<ItemSpawn>();
     }
 
     void Update() {
@@ -23,6 +26,7 @@ public class medkitScript : MonoBehaviour
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject == playerObj) {
             player.health += health;//Adds the health to the player stats
+            itemSpawn.totalItemsOnGround--;//removes item from ground
             Destroy();
         }
     }
