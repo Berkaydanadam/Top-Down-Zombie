@@ -754,11 +754,13 @@ MonoBehaviour:
   items:
   - {fileID: 1961465186967308, guid: cecc22efcd825db439479ae2b8fecd63, type: 2}
   - {fileID: 1026172492109988, guid: b15b2cc6be4361c46847507f027212f6, type: 2}
-  itemsOnGround: []
-  nextSpawn: 0
+  itemsOnGroundList: []
+  nextSpawnTime: 0
   itemNumber: 0
-  maxItemsOnGround: 2
+  maxItemsOnGround: 5
   totalItemsOnGround: 0
+  maxTime: 5
+  minTime: 50
 --- !u!1 &1009565669
 GameObject:
   m_ObjectHideFlags: 0
