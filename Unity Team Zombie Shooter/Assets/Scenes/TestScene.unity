@@ -1403,7 +1403,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdef404326062224bb8f165ce5f75bee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  originPoint: {fileID: 1503977130}
+  originPoint: {fileID: 1503977131}
   damage: 30
   fireRate: 1
   ammo: 30
