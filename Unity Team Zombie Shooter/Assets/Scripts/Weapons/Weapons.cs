@@ -36,7 +36,7 @@ public class Weapons : MonoBehaviour {
     void Shoot() {
         GameObject bullet = Instantiate(GameObject.FindGameObjectWithTag("Bullet") 
             , originPoint.transform.position, originPoint.rotation) as GameObject;
-        bullet.GetComponent<Rigidbody>().AddForce(-transform.forward * 100);
+        bullet.GetComponent<Rigidbody>().AddForce(-transform.forward * 10);
         bullet.GetComponent<BulletScript>().damage = damage;
     }
 }

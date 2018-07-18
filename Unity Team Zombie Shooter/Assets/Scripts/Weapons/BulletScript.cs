@@ -16,7 +16,7 @@ public class BulletScript : MonoBehaviour {
     private void OnCollisionEnter(Collision collision) {
         if (collision.gameObject.tag == ("Zombie")) {
             collision.gameObject.GetComponent<zombieScript>().health -= damage;
-            Destroy(gameObject);
         }
+        Destroy(gameObject);
     }
 }
