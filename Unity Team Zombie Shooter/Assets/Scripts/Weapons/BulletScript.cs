@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour {
 
+    [HideInInspector]
     public int damage;
 
 	void Start () {

@@ -21,8 +21,8 @@ GameObject:
   - component: {fileID: 4759198131744674}
   - component: {fileID: 33293802086791452}
   - component: {fileID: 23918212124561336}
-  - component: {fileID: 114902888467814176}
   - component: {fileID: 65331870748685838}
+  - component: {fileID: 114844595704181308}
   m_Layer: 0
   m_Name: Ammo Box
   m_TagString: Consumables
@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1026172492109988}
   m_LocalRotation: {x: -0, y: 0.008726558, z: -0, w: 0.999962}
-  m_LocalPosition: {x: 1.0376843, y: 0, z: 2.4523702}
+  m_LocalPosition: {x: 1.6907309, y: -6.055666e-18, z: 0.96507794}
   m_LocalScale: {x: 0.22528553, y: 0.26258856, z: 0.22528562}
   m_Children: []
   m_Father: {fileID: 0}
@@ -97,7 +97,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.0058486, y: 0.84511036, z: 2.0058455}
   m_Center: {x: 0.007737329, y: 0.4624564, z: 0.0025790646}
---- !u!114 &114902888467814176
+--- !u!114 &114844595704181308
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -105,8 +105,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1026172492109988}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1698c828c7b3f16478b8cc32996a2f6d, type: 3}
+  m_Script: {fileID: 11500000, guid: b44e6e1755ba96a478761a33e3706c20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ammo: 30
-  turnSpeed: 25
+  health: 0
+  turnSpeed: 20
+  playerStats: {fileID: 0}

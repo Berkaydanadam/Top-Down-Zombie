@@ -21,8 +21,8 @@ GameObject:
   - component: {fileID: 4222758556102330}
   - component: {fileID: 33462141153763938}
   - component: {fileID: 23835829297908646}
-  - component: {fileID: 114264924644633446}
   - component: {fileID: 65730893462138038}
+  - component: {fileID: 114623549681668548}
   m_Layer: 0
   m_Name: Medkit
   m_TagString: Consumables
@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1961465186967308}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.6683594, y: 0, z: 2.8689415}
+  m_LocalPosition: {x: 1.8747162, y: -8.217025e-18, z: 1.3095291}
   m_LocalScale: {x: 0.27598187, y: 0.27770358, z: 0.27598193}
   m_Children: []
   m_Father: {fileID: 0}
@@ -97,7 +97,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.003676, y: 0.688798, z: 2.0036733}
   m_Center: {x: -0.00000010798652, y: 0.33600897, z: -0.011808971}
---- !u!114 &114264924644633446
+--- !u!114 &114623549681668548
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -105,8 +105,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1961465186967308}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49b520a876878ba4ca29c9cc4bf49dac, type: 3}
+  m_Script: {fileID: 11500000, guid: 4d8b2588da0a4434089035fe1eab41a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ammo: 0
   health: 20
-  turnSpeed: 25
+  turnSpeed: 20
+  playerStats: {fileID: 0}
