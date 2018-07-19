@@ -8,6 +8,10 @@ TagManager:
   - Consumables
   - Weapon
   - Bullet
+  - ItemConsumables
+  - ItemWeapon
+  - SpawnSystem
+  - Environment
   layers:
   - Default
   - TransparentFX

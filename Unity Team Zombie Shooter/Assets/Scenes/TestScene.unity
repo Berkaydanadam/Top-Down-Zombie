@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 153090078}
   m_Layer: 0
   m_Name: Wall (6)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -276,7 +276,7 @@ GameObject:
   - component: {fileID: 190870729}
   m_Layer: 0
   m_Name: Wall (2)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -403,7 +403,7 @@ GameObject:
   - component: {fileID: 404558037}
   m_Layer: 0
   m_Name: Wall (4)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -696,7 +696,7 @@ GameObject:
   - component: {fileID: 812238152}
   m_Layer: 0
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -780,7 +780,7 @@ GameObject:
   - component: {fileID: 845476084}
   m_Layer: 0
   m_Name: Spawn System
-  m_TagString: Untagged
+  m_TagString: SpawnSystem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -838,8 +838,13 @@ MonoBehaviour:
   items:
   - {fileID: 1961465186967308, guid: cecc22efcd825db439479ae2b8fecd63, type: 2}
   - {fileID: 1026172492109988, guid: b15b2cc6be4361c46847507f027212f6, type: 2}
-  nextSpawn: 0
+  itemsOnGroundList: []
+  nextSpawnTime: 0
   itemNumber: 0
+  maxItemsOnGround: 5
+  totalItemsOnGround: 0
+  maxTime: 5
+  minTime: 50
 --- !u!1 &1009565669
 GameObject:
   m_ObjectHideFlags: 0
@@ -850,7 +855,7 @@ GameObject:
   - component: {fileID: 1009565670}
   m_Layer: 0
   m_Name: Walls
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -875,6 +880,56 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1013611882
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4269480523109076, guid: 663c5931e85c0124785ef2b7585e21f1, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.39779013
+      objectReference: {fileID: 0}
+    - target: {fileID: 4269480523109076, guid: 663c5931e85c0124785ef2b7585e21f1, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.756
+      objectReference: {fileID: 0}
+    - target: {fileID: 4269480523109076, guid: 663c5931e85c0124785ef2b7585e21f1, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 5.410718
+      objectReference: {fileID: 0}
+    - target: {fileID: 4269480523109076, guid: 663c5931e85c0124785ef2b7585e21f1, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4269480523109076, guid: 663c5931e85c0124785ef2b7585e21f1, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4269480523109076, guid: 663c5931e85c0124785ef2b7585e21f1, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4269480523109076, guid: 663c5931e85c0124785ef2b7585e21f1, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4269480523109076, guid: 663c5931e85c0124785ef2b7585e21f1, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1461840463095070, guid: 663c5931e85c0124785ef2b7585e21f1, type: 2}
+      propertyPath: m_Name
+      value: ZombiePrototype (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1461840463095070, guid: 663c5931e85c0124785ef2b7585e21f1, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 663c5931e85c0124785ef2b7585e21f1, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1117147504
 GameObject:
   m_ObjectHideFlags: 0
@@ -1053,7 +1108,7 @@ GameObject:
   - component: {fileID: 1385542162}
   m_Layer: 0
   m_Name: Wall (1)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1166,7 +1221,7 @@ GameObject:
   - component: {fileID: 1836485455}
   m_Layer: 0
   m_Name: Wall (5)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1463,7 +1518,7 @@ GameObject:
   - component: {fileID: 2110366845}
   m_Layer: 0
   m_Name: Wall (3)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -22,10 +22,11 @@ GameObject:
   - component: {fileID: 33293802086791452}
   - component: {fileID: 23918212124561336}
   - component: {fileID: 65331870748685838}
-  - component: {fileID: 114844595704181308}
+  - component: {fileID: 54248441825715968}
+  - component: {fileID: 114050574327665806}
   m_Layer: 0
   m_Name: Ammo Box
-  m_TagString: Consumables
+  m_TagString: ItemConsumables
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -85,6 +86,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1026172492109988}
   m_Mesh: {fileID: 4300000, guid: 968b2acbf7037344ea0f473070cf8187, type: 3}
+--- !u!54 &54248441825715968
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1026172492109988}
+  serializedVersion: 2
+  m_Mass: 0.0000001
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!65 &65331870748685838
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -97,9 +113,9 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.0058486, y: 0.84511036, z: 2.0058455}
   m_Center: {x: 0.007737329, y: 0.4624564, z: 0.0025790646}
---- !u!114 &114844595704181308
+--- !u!114 &114050574327665806
 MonoBehaviour:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1026172492109988}
@@ -112,3 +128,15 @@ MonoBehaviour:
   health: 0
   turnSpeed: 20
   playerStats: {fileID: 0}
+  itemSpawn: {fileID: 0}
+--- !u!114 &114844595704181308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1026172492109988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
