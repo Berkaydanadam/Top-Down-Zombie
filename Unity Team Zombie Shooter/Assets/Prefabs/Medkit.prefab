@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 23835829297908646}
   - component: {fileID: 65730893462138038}
   - component: {fileID: 114623549681668548}
-
+  - component: {fileID: 54735130921764646}
   m_Layer: 0
   m_Name: Medkit
   m_TagString: ItemConsumables
@@ -88,7 +88,7 @@ MeshFilter:
   m_Mesh: {fileID: 4300000, guid: a8d5684119524b149897c30205517456, type: 3}
 --- !u!54 &54735130921764646
 Rigidbody:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1961465186967308}

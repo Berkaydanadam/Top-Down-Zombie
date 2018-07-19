@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 65331870748685838}
   - component: {fileID: 54248441825715968}
   - component: {fileID: 114050574327665806}
+  - component: {fileID: 114844595704181308}
   m_Layer: 0
   m_Name: Ammo Box
   m_TagString: ItemConsumables
