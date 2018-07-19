@@ -22,8 +22,8 @@ GameObject:
   - component: {fileID: 33293802086791452}
   - component: {fileID: 23918212124561336}
   - component: {fileID: 65331870748685838}
-  - component: {fileID: 114050574327665806}
   - component: {fileID: 54248441825715968}
+  - component: {fileID: 114050574327665806}
   m_Layer: 0
   m_Name: Ammo Box
   m_TagString: ItemConsumables
@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1026172492109988}
   m_LocalRotation: {x: -0, y: 0.008726558, z: -0, w: 0.999962}
-  m_LocalPosition: {x: 1.0376843, y: 0, z: 2.4523702}
+  m_LocalPosition: {x: 1.6907309, y: -6.055666e-18, z: 0.96507794}
   m_LocalScale: {x: 0.22528553, y: 0.26258856, z: 0.22528562}
   m_Children: []
   m_Father: {fileID: 0}
@@ -88,7 +88,7 @@ MeshFilter:
   m_Mesh: {fileID: 4300000, guid: 968b2acbf7037344ea0f473070cf8187, type: 3}
 --- !u!54 &54248441825715968
 Rigidbody:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1026172492109988}
@@ -115,7 +115,7 @@ BoxCollider:
   m_Center: {x: 0.007737329, y: 0.4624564, z: 0.0025790646}
 --- !u!114 &114050574327665806
 MonoBehaviour:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1026172492109988}
@@ -129,3 +129,14 @@ MonoBehaviour:
   turnSpeed: 20
   playerStats: {fileID: 0}
   itemSpawn: {fileID: 0}
+--- !u!114 &114844595704181308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1026172492109988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 

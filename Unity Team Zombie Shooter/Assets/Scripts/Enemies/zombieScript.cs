@@ -5,8 +5,8 @@ using UnityEngine;
 public class zombieScript : MonoBehaviour {
 
     //Some have Armor?
-    public float health = 100; //Change to prefrence
-    public float damage = 10;
+    public int health = 100; //Change to prefrence
+    public int damage = 10;
     public float timeBetweenAttacks = 3;
 
     public bool attack;
