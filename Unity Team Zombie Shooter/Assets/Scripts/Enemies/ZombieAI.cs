@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class ZombieAI : MonoBehaviour {
 
-    public float walkRadius = 4;
+    public float walkRadius = 10;
 
     bool playerDetected;
 
@@ -23,7 +23,7 @@ public class ZombieAI : MonoBehaviour {
         zombie = GameObject.FindGameObjectWithTag("Zombie");
         AIScript = zombie.GetComponent<ZombieAI>();
         agent = GetComponent<NavMeshAgent>();
-
+        agent.SetDestination(RandomNavmeshLocation(walkRadius));
         //Fetch the Renderer from the GameObject
         rend = GetComponent<Renderer>();
     }
